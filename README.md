@@ -17,12 +17,11 @@ A *brief* description regarding the application:
 
 - **Who** will use it?
 > The reading pal is for passionate reader who love to read, sometimes a bit too much. It will help <br> 
-> reader stay focused and encourage a better reading experience through a disciplined goal. The <br> 
+> readers stay focused and encourage a better reading experience through a disciplined goal. The <br> 
 > ability to record things like ranks, quotes and notes will be much better than scattered <br> 
 > documentations. All readers will find it useful to explore their preference through genres they <br>
 > made known through books read in each genre.
-> 
-> 
+
 
 - **Why** is this project of interest to you?
 > This project is especially interesting to a reader like me, since having to write TO-READ book <br> 
@@ -39,7 +38,7 @@ A *brief* description regarding the application:
 A user stories for ***Reading Pal*** would be as follows:
 - As a user, I want to be able to add books to 'READ NEXT' and 'RE-READ' lists.
 - As a user, I want to be able to view all the books I have read and will read.
-- As a user, I want to be able to Rank my book according to personal preference.
+- As a user, I want to be able to rank my book according to my personal preference.
 - As a user, I want to be able to remove books from my reading lists.
 - As a user, I want to be able to create new genre and add books to them.
 - As a user, I want to be able to create a reading goal.
