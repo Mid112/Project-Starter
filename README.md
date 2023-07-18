@@ -9,9 +9,7 @@ A *brief* description regarding the application:
 > - Creates "READ NEXT" list with books to be read next (with images).
 >   - The book also had the "RE-READ" list with 'completed' or 'currently reading' books.
 >   - User can also store quotes, notes and info from 'completed' or 'currently' reading book.
-> - Set reading goals to encourage reading or stop from extreme indulgence. 
-> - Divide genre of books into categories created by user. 
->   - Prompt reading recommendation to enjoy a well-rounded reading experience by genre. ??
+> - Divide genre of books into categories created by user.
 > - Rank all the book to help decide user's favorites (with images).
 >   - A reader can joint rank can be given.
 
@@ -39,8 +37,12 @@ A user stories for ***Reading Pal*** would be as follows:
 - As a user, I want to be able to add books to 'READ NEXT' and 'RE-READ' lists.
 - As a user, I want to be able to view all the books I have read and will read.
 - As a user, I want to be able to rank my book according to my personal preference.
-- As a user, I want to be able to remove books from my reading lists.
-- As a user, I want to be able to create new genre and add books to them.
-- As a user, I want to be able to create a reading goal.
 - As a user, I want to be able to add things like quote, notes etc. for individual books.
+
+[//]: # (- As a user, I want to be able to remove books from my reading lists.)
+
+[//]: # (- As a user, I want to be able to create new genre and add books to them.)
+
+[//]: # (- As a user, I want to be able to create a reading goal.)
+
 
