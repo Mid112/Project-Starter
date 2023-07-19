@@ -1,5 +1,5 @@
 package model;
 
-class ToReadListTest {
+class Book {
     // delete or rename this class!
 }
