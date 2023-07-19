@@ -34,15 +34,17 @@ A *brief* description regarding the application:
 
 
 A user stories for ***Reading Pal*** would be as follows:
-- As a user, I want to be able to add books to 'READ NEXT' and 'RE-READ' lists.
+- As a user, I want to be able to add books to 'READ NEXT' 
+- As a user, I want to be able to add books to 'RE-READ' lists.
 - As a user, I want to be able to view all the books I have read and will read.
 - As a user, I want to be able to rank my book according to my personal preference.
 - As a user, I want to be able to add things like quote, notes etc. for individual books.
-
-[//]: # (- As a user, I want to be able to remove books from my reading lists.)
+- As a user, I want to be able to remove books from my reading lists.
+- As a user, I want to be able to create a reading goal, 
+  - I want to define time period to read a certain book.
 
 [//]: # (- As a user, I want to be able to create new genre and add books to them.)
 
-[//]: # (- As a user, I want to be able to create a reading goal.)
+[//]: # (- )
 
 
