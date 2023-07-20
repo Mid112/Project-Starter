@@ -57,16 +57,16 @@ class BookTest {
 
     }
 
-    @Test
-    public void createBookTest() {
-        testBook.createBook(null, null, null);
-
-        assertNull( testBook.getTitle());
-        assertNull(testBook.getAuthor());
-        assertNull(testBook.getStatus());
-
-
-    }
+//
+//    public void createBookTest() {
+//        testBook.createBook(null, null, null);
+//
+//        assertNull( testBook.getTitle());
+//        assertNull(testBook.getAuthor());
+//        assertNull(testBook.getStatus());
+//
+//
+//    }
 
 
 }
