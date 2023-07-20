@@ -1,8 +1,8 @@
-package model;
+package ui;
 
 import java.util.*;
 
-import ui.*;
+import model.*;
 
 
 public class ReadingList {
@@ -31,10 +31,7 @@ public class ReadingList {
     }
 
 
-//    public void startAppTitle() {
-//        System.out.println("Reading List:");
-//        System.out.println("");
-//    }
+
 
 
     //REQUIRES:
@@ -71,7 +68,10 @@ public class ReadingList {
         }
     }
 
-
+//REQUIRES:
+//MODIFIES: this,
+//EFFECT: Based on the user input, it chooses the right case and executes the selected
+    // tool
 
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public void runFunctionTool(int toolChosen) {

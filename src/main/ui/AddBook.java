@@ -1,7 +1,6 @@
 package ui;
 
 import model.Book;
-import model.ReadingList;
 
 import java.util.Scanner;
 
