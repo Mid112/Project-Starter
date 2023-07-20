@@ -4,6 +4,7 @@ import java.util.*;
 
 import model.*;
 
+//This collects data from all different classes and combines it to form Reading list
 
 public class ReadingList {
 
@@ -11,12 +12,11 @@ public class ReadingList {
 
 
 
-    //  MODIFIES: this
+// MODIFIES: this
 // EFFECTS: create a map, that maintains insertion order of the book.
     public static final Map<String, Book> toReadBooks = new LinkedHashMap<>();
 
-
-    //MODIFIES: this
+//MODIFIES: this
 //EFFECTS: It keeps the application running, until the time;
 //         user is using the application.
     public void keepAppOpen() {
@@ -34,7 +34,6 @@ public class ReadingList {
 
 
 
-    //REQUIRES:
 //MODIFIES:
 //EFFECTS: Prints a list of tool, that may be accessed by the user inside application.
     public void toolsList() {
@@ -42,7 +41,7 @@ public class ReadingList {
         toolCollection.featureList();
     }
 
-//REQUIRES:
+//REQUIRES: User input
 //MODIFIES:
 //EFFECTS: If a valid input is given then executes the selected tool, otherwise,
 //         prompts the user to try again.

@@ -4,7 +4,10 @@ import model.Book;
 
 import java.util.Scanner;
 
+//This contains the features when a book is 'completed'
 public class CompletedBooks extends AppTools {
+
+//EFFECTS: Informs reader on how to use to tool
     @Override
     public void toolGuide() {
         System.out.println("");
@@ -15,6 +18,9 @@ public class CompletedBooks extends AppTools {
 
     }
 
+//REQUIRES: input from scanner
+//MODIFIES:
+//EFFECTS: reads user input and selects the action to perform
     @Override
     public String readInput() {
         while (true) {
@@ -42,6 +48,7 @@ public class CompletedBooks extends AppTools {
 
     }
 
+//Produces the final result to be displayed in the console
     @Override
     public void runFunctionTool(String action) {
         ReadingList.toReadBooks.get(action).setStatus("Completed");

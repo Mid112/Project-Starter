@@ -1,6 +1,6 @@
 package model;
 
-//This class define a book and what it consists of.
+//This class defines a book and what it consists of.
 // A book can be added to Reading list to be read.
 
 
@@ -45,6 +45,9 @@ public class Book {
 
     }
 
+////REQUIRES: A string with Book fields
+////MODIFIES: this,
+////EFFECTS: Creates a book for the user based on input from user.
 
     public static Book createBook(String title, String author, String status) {
         Book book = new Book();

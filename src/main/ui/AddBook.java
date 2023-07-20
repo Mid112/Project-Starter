@@ -4,6 +4,8 @@ import model.Book;
 
 import java.util.Scanner;
 
+
+//Extended class of app tools that contains the features to add a book to reading list
 public class AddBook extends AppTools {
 
 
@@ -21,9 +23,9 @@ public class AddBook extends AppTools {
 
     }
 
-    //REQUIRES:
-//MODIFIES:
-//EFFECTS:
+    //REQUIRES: input from scanner
+    //MODIFIES:
+    //EFFECTS: reads user input and selects the action to perform
     @Override
     public String readInput() {
         while (true) {
@@ -50,6 +52,7 @@ public class AddBook extends AppTools {
 
     }
 
+    //EFFECTS: produces the result in the console based on user action
     @Override
     public void runFunctionTool(String action) {
         String[] parts = action.split(",");
@@ -59,9 +62,5 @@ public class AddBook extends AppTools {
         System.out.println(book.getTitle() + " is added on reading list");
     }
 
-//    @Override
-//
-//
-//
-//    }
+
 }
