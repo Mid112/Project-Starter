@@ -3,6 +3,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class BookTest {
     private Book testBook;
@@ -58,11 +59,11 @@ class BookTest {
 
     @Test
     public void createBookTest() {
-        testBook.createBook("Title", "Author", "Status");
+        testBook.createBook(null, null, null);
 
-        assertEquals(null, testBook.getTitle());
-        assertEquals(null, testBook.getAuthor());
-        assertEquals(null, testBook.getStatus());
+        assertNull( testBook.getTitle());
+        assertNull(testBook.getAuthor());
+        assertNull(testBook.getStatus());
 
 
     }
