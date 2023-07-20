@@ -32,7 +32,7 @@ class BookTest {
     public void getStatusTest() {
         testBook.setStatus("Completed");
 
-        assertEquals("Completed", testBook.getStatus());
+        assertEquals("Again?", testBook.getStatus());
     }
 
     @Test
@@ -52,8 +52,10 @@ class BookTest {
     @Test
     public void setStatus() {
         testBook.setStatus("Ongoing");
-
         assertEquals("Ongoing", testBook.getStatus());
+
+        testBook.setStatus("Completed");
+        assertEquals("Again?", testBook.getStatus());
 
     }
 
@@ -67,6 +69,7 @@ class BookTest {
 
 
     }
+
 
 
 }

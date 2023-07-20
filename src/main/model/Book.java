@@ -1,30 +1,30 @@
 package model;
 
 //This class define a book and what it consists of.
-// A book can be added to ToRead list to be read.
+// A book can be added to Reading list to be read.
 
 
 
 
 public class Book {
+
     private String title;
     private String author;
-//    private LocalDate readingGoal;
     private String status;
 
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public String getAuthor() {
-        return author;
+        return this.author;
     }
 
 
 
     public String getStatus() {
-        return status;
+        return this.status;
     }
 
     public void setTitle(String title) {
@@ -37,8 +37,14 @@ public class Book {
 
 
     public void setStatus(String status) {
-        this.status = status;
+        if (status == "Completed") {
+            this.status = "Again?";
+        } else {
+            this.status = status;
+        }
+
     }
+
 
     public static Book createBook(String title, String author, String status) {
         Book book = new Book();
