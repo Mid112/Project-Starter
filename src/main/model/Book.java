@@ -13,6 +13,19 @@ public class Book {
     private String status;
 
 
+    ////REQUIRES:
+////MODIFIES: this,
+////EFFECTS: Creates a book for the user based on input from user.
+
+    public void createBook(String title, String author, String status) {
+        setTitle(title);
+        setAuthor(author);
+        setStatus(status);
+
+
+    }
+
+
     public String getTitle() {
         return this.title;
     }
@@ -38,25 +51,11 @@ public class Book {
 
     public void setStatus(String status) {
         if (status == "Completed") {
-            this.status = "Again?";
+            this.status = "Completed." + " Read" + " Again?";
         } else {
-            this.status = status;
+            this.status = "Not" + "Completed.";
         }
 
-    }
-
-////REQUIRES: A string with Book fields
-////MODIFIES: this,
-////EFFECTS: Creates a book for the user based on input from user.
-
-    public static Book createBook(String title, String author, String status) {
-        Book book = new Book();
-
-        book.setTitle(title);
-        book.setAuthor(author);
-        book.setStatus(status);
-
-        return book;
     }
 
 }

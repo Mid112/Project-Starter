@@ -4,13 +4,7 @@ import model.Book;
 
 import java.util.Scanner;
 
-
-//Extended class of app tools that contains the features to add a book to reading list
-public class AddBook extends AppTools {
-
-
-//EFFECTS: Prints statement that tell user, what to do to use the tool.
-
+public class AddTool extends AToolAbst {
     @Override
     public void toolGuide() {
 
@@ -23,9 +17,6 @@ public class AddBook extends AppTools {
 
     }
 
-    //REQUIRES: input from scanner
-    //MODIFIES:
-    //EFFECTS: reads user input and selects the action to perform
     @Override
     public String readInput() {
         while (true) {
@@ -34,14 +25,11 @@ public class AddBook extends AppTools {
             Scanner scan = new Scanner(System.in);
             String givenInput = scan.nextLine();
 
+
             if (!givenInput.equals("r")) {
                 String[] parts = givenInput.split(",");
                 if (parts.length == 3) {
-                    if (ReadingList.toReadBooks.get(parts[0]) == null) {
-                        return givenInput;
-                    } else {
-                        System.out.println("Try to enter information again");
-                    }
+                    return givenInput;
                 } else {
                     System.out.println("Information enter is invalid");
                 }
@@ -49,17 +37,15 @@ public class AddBook extends AppTools {
                 return givenInput;
             }
         }
-
     }
 
-    //EFFECTS: produces the result in the console based on user action
     @Override
-    public void runFunctionTool(String action) {
+    public Book runFunctionTool(String action) {
         String[] parts = action.split(",");
-        Book book = Book.createBook(parts[0], parts[1], parts[2]);
+        Book book = new Book();
+        book.createBook(parts[0], parts[1], parts[2]);
 
-        ReadingList.toReadBooks.put(book.getTitle(), book);
-        System.out.println(book.getTitle() + " is added on reading list");
+        return book;
     }
 
 
