@@ -34,10 +34,15 @@ public class ReadingListTest {
     @Test
 
     public void getAllBooks() {
+        ReadingList getBookTemp;
+        getBookTemp = new ReadingList();
+        getBookTemp.addBook(book);
+        getBookTemp.addBook(book2);
         readingListTest.addBook(book);
         readingListTest.addBook(book2);
 
         assertEquals(2, readingListTest.howLong());
+        assertEquals(getBookTemp.getAllBooks(), readingListTest.getAllBooks());
 
 
     }
@@ -50,6 +55,7 @@ public class ReadingListTest {
 
         assertEquals(2, readingListTest.howLong());
         assertEquals(book, readingListTest.getBookByTitle("Book1"));
+        assertNull(readingListTest.getBookByTitle("123"));
     }
 
     @Test
