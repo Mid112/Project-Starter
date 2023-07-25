@@ -28,10 +28,13 @@ public class ReadingList {
         }
         return null;
     }
+    //EFFECTS: adds Book to the books in Reading List
 
     public void addBook(Book book) {
         books.add(book);
     }
+
+    //EFFECTS: adds Book from the books in Reading List
 
     public void removeBook(Book book) {
         books.remove(book);
