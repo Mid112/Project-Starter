@@ -15,6 +15,8 @@ import java.util.Scanner;
 public class ReadListApp {
     private static final String JSON_STORE = "./data/readinglist.json";
     private Scanner input;
+    private String genre;
+    private Scanner genreName;
     private ReadingList books;
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
@@ -23,7 +25,11 @@ public class ReadListApp {
 
 
     public ReadListApp() {
-        books = new ReadingList("User's Reading List");
+        System.out.println("Reading List Genre:");
+
+        genreName = new Scanner(System.in);
+        genre = genreName.next();
+        books = new ReadingList(genre);
         input = new Scanner(System.in);
         jsonReader = new JsonReader(JSON_STORE);
         jsonWriter = new JsonWriter(JSON_STORE);
@@ -36,8 +42,6 @@ public class ReadListApp {
         boolean keepGoing = true;
         String command = null;
 
-
-        System.out.println("Reading List");
 
         while (keepGoing) {
 

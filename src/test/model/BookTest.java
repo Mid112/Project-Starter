@@ -10,7 +10,7 @@ class BookTest {
 
     @BeforeEach
     public void runBefore() {
-        this.testBook = new Book();
+        this.testBook = new Book("","","");
 
     }
 
@@ -60,12 +60,11 @@ class BookTest {
     }
 
     @Test
-    public void createBookTest() {
-        testBook.createBook(null, null, null);
+    public void bookConstructorTest() {
 
-        assertNull( testBook.getTitle());
-        assertNull(testBook.getAuthor());
-        assertNull(testBook.getStatus());
+        assertEquals("", testBook.getTitle());
+        assertEquals("", testBook.getAuthor());
+        assertEquals("", testBook.getStatus());
 
 
     }
