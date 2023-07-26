@@ -38,13 +38,16 @@ A user stories for ***Reading Pal*** would be as follows:
 - As a user, I want to be able to view status book like complete, reading etc.
 - As a user, I want to be able to view all the books I have read and will read.
 - As a user, I want to be able to rank my book according to my personal preference.
-- As a user, I want to be able to add things like quote, notes etc. for individual books.
 - As a user, I want to be able to remove books from my reading lists.
-- As a user, I want to be able to create a reading goal, 
-  - I want to define time period to read a certain book.
+- As a user, I want to be able to save my reading list to file (if I so choose).
+- As a user, I want to be able to load my reading list from file (if I so choose).
+
+[//]: # (- As a user, I want to be able to create a reading goal, )
+
+[//]: # (  - I want to define time period to read a certain book.)
 
 [//]: # (- As a user, I want to be able to create new genre and add books to them.)
 
-[//]: # (- )
+[//]: # ( &#40;- As a user, I want to be able to add things like quote, notes etc. for individual books.&#41;)
 
 
