@@ -24,7 +24,7 @@ public class ReadListApp {
 
 
 
-    public ReadListApp() {
+    public ReadListApp() throws FileNotFoundException {
         System.out.println("Reading List Genre:");
 
         genreName = new Scanner(System.in);
