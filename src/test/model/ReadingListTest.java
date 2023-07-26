@@ -17,10 +17,8 @@ public class ReadingListTest {
 
     public void runBefore() {
         readingListTest = new ReadingList();
-        book = new Book();
-        book.createBook("Book1","Someone","Not Completed");
-        book2 = new Book();
-           book.createBook("Book1", "Someone", "Not Completed");
+        book = new Book("Book1","Someone","Not Completed");
+        book2 = new Book("Book1", "Someone", "Not Completed");
 
     }
 
