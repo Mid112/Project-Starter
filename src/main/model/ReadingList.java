@@ -12,6 +12,8 @@ public class ReadingList implements Writable {
     private List<Book> books;
     private String name;
 
+    private Book emptyBook = null;
+
     public ReadingList(String name) {
         this.name = name;
         books = new ArrayList<>();
@@ -35,8 +37,14 @@ public class ReadingList implements Writable {
                 return book;
             }
         }
-        return null;
+        return emptyBook;
     }
+
+
+    public Book getEmptyBook() {
+        return emptyBook;
+    }
+
     //EFFECTS: adds Book to the books in Reading List
 
     public void addBook(Book book) {
@@ -48,6 +56,7 @@ public class ReadingList implements Writable {
     public void removeBook(Book book) {
         books.remove(book);
     }
+
 
     @Override
     public JSONObject toJson() {

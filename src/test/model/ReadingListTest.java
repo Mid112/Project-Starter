@@ -3,10 +3,7 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ReadingListTest {
     private ReadingList readingListTest;
@@ -53,6 +50,7 @@ public class ReadingListTest {
 
         assertEquals(2, readingListTest.howLong());
         assertEquals(book, readingListTest.getBookByTitle("Book1"));
+        assertEquals(readingListTest.getEmptyBook(), readingListTest.getBookByTitle(""));
     }
 
     @Test
@@ -68,8 +66,14 @@ public class ReadingListTest {
         readingListTest.addBook(book);
         readingListTest.removeBook(book);
 
+        assertEquals(readingListTest.getEmptyBook() ,readingListTest.getBookByTitle("Book1"));
         assertNull(readingListTest.getBookByTitle("Book1"));
 
+
+    }
+
+    @Test
+    public void getNameTest() {
 
     }
 

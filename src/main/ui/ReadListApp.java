@@ -141,6 +141,8 @@ public class ReadListApp {
     }
 
     private void toolList() {
+        System.out.println("");
+        System.out.println("Genre:" + books.getName());
         System.out.println("What do you wish to do:");
         System.out.println("");
         System.out.println("1. Add a book");

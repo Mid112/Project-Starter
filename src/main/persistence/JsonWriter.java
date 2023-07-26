@@ -5,6 +5,8 @@ import org.json.JSONObject;
 
 import java.io.*;
 
+//Credit: The program is greatly based off of JsonSerializationDemo, CPSC210, UBC
+
 // Represents a writer that writes JSON representation of ReadingList to file
 public class JsonWriter {
     private static final int TAB = 4;
