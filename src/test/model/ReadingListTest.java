@@ -3,7 +3,7 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
+
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -16,7 +16,7 @@ public class ReadingListTest {
     @BeforeEach
 
     public void runBefore() {
-        readingListTest = new ReadingList();
+        readingListTest = new ReadingList("Reading List");
         book = new Book("Book1","Someone","Not Completed");
         book2 = new Book("Book1", "Someone", "Not Completed");
 
@@ -24,7 +24,7 @@ public class ReadingListTest {
 
     @Test
 
-    public void ReadingListTest() {
+    public void ReadingListConstructorTest() {
         assertEquals(0, readingListTest.howLong());
 
     }
@@ -33,7 +33,7 @@ public class ReadingListTest {
 
     public void getAllBooks() {
         ReadingList getBookTemp;
-        getBookTemp = new ReadingList();
+        getBookTemp = new ReadingList("Reading List");
         getBookTemp.addBook(book);
         getBookTemp.addBook(book2);
         readingListTest.addBook(book);

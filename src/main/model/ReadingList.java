@@ -12,8 +12,13 @@ public class ReadingList implements Writable {
     private List<Book> books;
     private String name;
 
-    public ReadingList() {
+    public ReadingList(String name) {
+        this.name = name;
         books = new ArrayList<>();
+    }
+
+    public String getName() {
+        return name;
     }
 
     public List<Book> getAllBooks() {
@@ -47,7 +52,8 @@ public class ReadingList implements Writable {
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
-        json.put("ReadingList", booksToJson());
+        json.put("name", name);
+        json.put("books", booksToJson());
         return json;
     }
 

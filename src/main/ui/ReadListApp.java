@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ReadListApp {
-    private static final String JSON_STORE = "./data/workroom.json";
+    private static final String JSON_STORE = "./data/readinglist.json";
     private Scanner input;
     private ReadingList books;
     private JsonWriter jsonWriter;
@@ -23,7 +23,7 @@ public class ReadListApp {
 
 
     public ReadListApp() {
-        books = new ReadingList();
+        books = new ReadingList("User's Reading List");
         input = new Scanner(System.in);
         jsonReader = new JsonReader(JSON_STORE);
         jsonWriter = new JsonWriter(JSON_STORE);
