@@ -4,9 +4,10 @@ package model;
 // A book can be added to Reading list to be read.
 
 
+import org.json.JSONObject;
+import persistence.Writable;
 
-
-public class Book {
+public class Book implements Writable {
 
     private String title;
     private String author;
@@ -14,14 +15,13 @@ public class Book {
 
 
     ////REQUIRES:
-////MODIFIES: this,
-////EFFECTS: Creates a book for the user based on input from user.
+    ////MODIFIES: this,
+    ////EFFECTS: Creates a book for the user based on input from user.
 
-    public void createBook(String title, String author, String status) {
+    public Book(String title, String author, String status) {
         setTitle(title);
         setAuthor(author);
         setStatus(status);
-
 
     }
 
@@ -48,6 +48,11 @@ public class Book {
         this.author = author;
     }
 
+    //REQUIRES:
+    //MODIFIES: this,
+    //EFFECTS: if status entered is status "Completed, the set status to predetermined
+    // string, otherwise sets it to Not Completed.
+
 
     public void setStatus(String status) {
         if (status == "Completed") {
@@ -56,6 +61,15 @@ public class Book {
             this.status = "Not" + "Completed.";
         }
 
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("title", title);
+        json.put("author", author);
+        json.put("status", status);
+        return json;
     }
 
 }

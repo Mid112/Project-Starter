@@ -50,4 +50,7 @@ A user stories for ***Reading Pal*** would be as follows:
 
 [//]: # ( &#40;- As a user, I want to be able to add things like quote, notes etc. for individual books.&#41;)
 
+Citations:
+
+JsonSerializationDemo,210 UBC, is used for the Json implementation.
 

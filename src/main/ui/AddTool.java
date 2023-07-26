@@ -42,8 +42,7 @@ public class AddTool extends AToolAbst {
     @Override
     public Book runFunctionTool(String action) {
         String[] parts = action.split(",");
-        Book book = new Book();
-        book.createBook(parts[0], parts[1], parts[2]);
+        Book book = new Book(parts[0], parts[1], parts[2]);
 
         return book;
     }

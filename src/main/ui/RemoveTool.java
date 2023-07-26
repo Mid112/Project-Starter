@@ -24,11 +24,7 @@ public class RemoveTool extends AToolAbst {
             Scanner scan = new Scanner(System.in);
             try {
                 String givenInput = scan.nextLine();
-                if (givenInput != null) {
-                    return givenInput;
-                } else {
-                    return givenInput;
-                }
+                return givenInput;
 
             } catch (Exception e) {
                 System.out.println("Enter a valid book or Press 'r' to return");

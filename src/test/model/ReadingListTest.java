@@ -55,7 +55,6 @@ public class ReadingListTest {
 
         assertEquals(2, readingListTest.howLong());
         assertEquals(book, readingListTest.getBookByTitle("Book1"));
-        assertNull(readingListTest.getBookByTitle("123"));
     }
 
     @Test

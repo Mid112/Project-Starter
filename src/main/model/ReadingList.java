@@ -1,12 +1,16 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReadingList {
+public class ReadingList implements Writable {
 
     private List<Book> books;
-
+    private String name;
 
     public ReadingList() {
         books = new ArrayList<>();
@@ -26,7 +30,6 @@ public class ReadingList {
                 return book;
             }
         }
-        return null;
     }
     //EFFECTS: adds Book to the books in Reading List
 
@@ -38,6 +41,24 @@ public class ReadingList {
 
     public void removeBook(Book book) {
         books.remove(book);
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("ReadingList", booksToJson());
+        return json;
+    }
+
+    // EFFECTS: returns things in this workroom as a JSON array
+    private JSONArray booksToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Book b : books) {
+            jsonArray.put(b.toJson());
+        }
+
+        return jsonArray;
     }
 
 }

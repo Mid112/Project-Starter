@@ -2,20 +2,32 @@ package ui;
 
 import model.Book;
 import model.ReadingList;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class ReadList {
-
+public class ReadListApp {
+    private static final String JSON_STORE = "./data/workroom.json";
     private Scanner input;
     private ReadingList books;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
 
 
 
-    public ReadList() {
+    public ReadListApp() {
+        books = new ReadingList();
+        input = new Scanner(System.in);
+        jsonReader = new JsonReader(JSON_STORE);
+        jsonWriter = new JsonWriter(JSON_STORE);
+
+
         runReadList();
     }
 
@@ -25,8 +37,6 @@ public class ReadList {
 
 
         System.out.println("Reading List");
-        books = new ReadingList();
-        input = new Scanner(System.in);
 
         while (keepGoing) {
 
@@ -150,6 +160,29 @@ public class ReadList {
     public String splitTheWord(String word) {
         String[] parts = word.split(",");
         return parts[0];
+    }
+
+    // EFFECTS: saves the workroom to file
+    private void saveReadingList() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(books);
+            jsonWriter.close();
+            System.out.println("Saved " + "Reading List" + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads workroom from file
+    private void loadWorkRoom() {
+        try {
+            books = jsonReader.read();
+            System.out.println("Loaded " + "ReadingList" + " from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 
 }
