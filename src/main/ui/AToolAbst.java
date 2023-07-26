@@ -8,6 +8,8 @@ public abstract class AToolAbst {
     public static final int REMOVE_BOOK = 2;
     public static final int CHANGE_STATUS = 3;
     public static final int ALL_BOOKS = 4;
+    public static final int SAVE_BOOK = 5;
+    public static final int LOAD_BOOK = 6;
 
 
     //EFFECTS: Informs reader about how to use the given tool

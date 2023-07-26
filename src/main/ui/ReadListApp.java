@@ -7,6 +7,7 @@ import persistence.JsonWriter;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -124,6 +125,13 @@ public class ReadListApp {
                 }
                 break;
 
+            case AToolAbst.SAVE_BOOK:
+                saveReadingList();
+                break;
+
+            case AToolAbst.LOAD_BOOK:
+                loadReadingList();
+                break;
 
         }
     }
@@ -135,6 +143,8 @@ public class ReadListApp {
         System.out.println("2. Remove a book");
         System.out.println("3. Change book status");
         System.out.println("4. Display all books.");
+        System.out.println("5. Save reading list to file");
+        System.out.println("6. Load reading list from file");
         System.out.println("q. Quit?");
 
     }
@@ -142,7 +152,7 @@ public class ReadListApp {
 
 
     public int selectTool(int num) {
-        List<Integer> allToolPresent = Arrays.asList(1, 2, 3, 4);
+        List<Integer> allToolPresent = Arrays.asList(1, 2, 3, 4, 5, 6);
         while (true) {
             try {
                 if (allToolPresent.contains(num)) {
@@ -176,7 +186,7 @@ public class ReadListApp {
 
     // MODIFIES: this
     // EFFECTS: loads workroom from file
-    private void loadWorkRoom() {
+    private void loadReadingList() {
         try {
             books = jsonReader.read();
             System.out.println("Loaded " + "ReadingList" + " from " + JSON_STORE);

@@ -30,6 +30,7 @@ public class ReadingList implements Writable {
                 return book;
             }
         }
+        return null;
     }
     //EFFECTS: adds Book to the books in Reading List
 
