@@ -35,7 +35,7 @@ A *brief* description regarding the application:
 
 A user stories for ***Reading Pal*** would be as follows:
 - As a user, I want to be able to add book to 'READ NEXT' 
-- As a user, I want to be able to view status book like complete, reading etc.
+- As a user, I want to be able to view status book like complete, not completed etc.
 - As a user, I want to be able to view all the books I have read and will read.
 - As a user, I want to be able to rank my book according to my personal preference.
 - As a user, I want to be able to remove books from my reading lists.
@@ -49,8 +49,4 @@ A user stories for ***Reading Pal*** would be as follows:
 [//]: # (- As a user, I want to be able to create new genre and add books to them.)
 
 [//]: # ( &#40;- As a user, I want to be able to add things like quote, notes etc. for individual books.&#41;)
-
-Citations:
-
-JsonSerializationDemo,210 UBC, is used for the Json implementation.
 

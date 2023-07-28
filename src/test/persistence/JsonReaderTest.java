@@ -40,7 +40,7 @@ public class JsonReaderTest extends JsonTest{
 
     @Test
     void testReaderGeneralWorkRoom() {
-        JsonReader reader = new JsonReader("./data/testReaderGeneralRealList.json");
+        JsonReader reader = new JsonReader("./data/testReaderGeneralReadList.json");
         try {
             ReadingList rl = reader.read();
             assertEquals("Good", rl.getName());
