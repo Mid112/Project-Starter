@@ -4,7 +4,11 @@ import model.Book;
 
 import java.util.Scanner;
 
+// A subclass of AToolAbst, that remove book for ReadingList.
+
 public class RemoveTool extends AToolAbst {
+
+    //EFFECTS: print statements that guide user on how to use the tool.
     @Override
     public void toolGuide() {
         System.out.println("");
@@ -15,6 +19,8 @@ public class RemoveTool extends AToolAbst {
 
     }
 
+    //EFFECTS: Reads user input and also checks for any exception
+    // to make program robust.
     @Override
     public String readInput() {
 
@@ -34,6 +40,7 @@ public class RemoveTool extends AToolAbst {
 
     }
 
+    //EFFECTS: Performs nothing especial for the function.
     @Override
     public Book runFunctionTool(String action) {
         return null;

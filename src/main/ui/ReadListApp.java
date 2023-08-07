@@ -5,9 +5,13 @@ import model.ReadingList;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -24,6 +28,11 @@ public class ReadListApp {
 
 
 
+
+    //REQUIRES:
+    //MODIFIES: this,
+    //EFFECTS: This creates the start window, also checks with for exception.
+
     public ReadListApp() throws FileNotFoundException {
         System.out.println("Reading List Genre:");
 
@@ -38,6 +47,10 @@ public class ReadListApp {
         runReadList();
     }
 
+    //REQUIRES:
+    //MODIFIES:
+    //EFFECTS: Create a loop so that application keeps running until, user quits it.
+
     private void runReadList() {
         boolean keepGoing = true;
         String command = null;
@@ -46,8 +59,7 @@ public class ReadListApp {
         while (keepGoing) {
 
             toolList();
-            System.out.println("");
-            System.out.println("Type tool number:");
+            System.out.println("\n" + "Type tool number:");
             command = input.next();
             command = command.toLowerCase();
 
@@ -64,6 +76,10 @@ public class ReadListApp {
 
     }
 
+    //REQUIRES:
+    //MODIFIES: this.
+    //EFFECTS:  Carries out the desired function based on user input.
+
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     private void runFunctionTool(int toolChosen) {
         AToolAbst tool;
@@ -72,61 +88,23 @@ public class ReadListApp {
                 tool = new AddTool();
                 tool.toolGuide();
                 String action = tool.readInput();
-                if (books.getBookByTitle(splitTheWord(action)) == null) {
-                    if (!action.equals("r")) {
-                        books.addBook(tool.runFunctionTool(action));
-                        break;
-                    } else {
-                        System.out.println("Book already exists.");
-                    }
-                }
+                addingBook(tool, action);
+                break;
 
 
             case AToolAbst.CHANGE_STATUS:
                 tool = new Complete();
-                if (books.howLong() > 0) {
-                    tool.toolGuide();
-                    String title = tool.readInput();
-                    if (books.getBookByTitle(title) != null) {
-                        books.getBookByTitle(title).setStatus("Completed");
-                        System.out.println(title + " is now completed.");
-
-                    } else {
-                        System.out.println("No book found. Try again.");
-                    }
-                } else {
-                    System.out.println("No books added yet!");
-                }
+                changingStatus(tool);
                 break;
 
             case AToolAbst.REMOVE_BOOK:
                 tool = new RemoveTool();
-                if (books.howLong() > 0) {
-                    tool.toolGuide();
-                    String title = tool.readInput();
-                    if (books.getBookByTitle(title) != null) {
-                        books.removeBook(books.getBookByTitle(title));
-                        System.out.println(title + " is now removed.");
-
-                    } else {
-                        System.out.println("No book found. Try again.");
-                    }
-                } else {
-                    System.out.println("No books added yet!");
-                }
+                removingBook(tool);
                 break;
 
             case AToolAbst.ALL_BOOKS:
                 tool = new DisplayList();
-                if (books.howLong() > 0) {
-                    tool.toolGuide();
-                    for (Book book: books.getAllBooks()) {
-                        System.out.println("Title: " + book.getTitle() + ", Author: " + book.getAuthor()
-                                + ", Status: " + book.getStatus());
-                    }
-                } else {
-                    System.out.println("No books added yet!");
-                }
+                showAllBooks(tool);
                 break;
 
             case AToolAbst.SAVE_BOOK:
@@ -140,11 +118,67 @@ public class ReadListApp {
         }
     }
 
+    private void addingBook(AToolAbst tool, String action) {
+        if (books.getBookByTitle(splitTheWord(action)) == null) {
+            if (!action.equals("r")) {
+                books.addBook(tool.runFunctionTool(action));
+            } else {
+                System.out.println("Book already exists.");
+            }
+        }
+    }
+
+    private void showAllBooks(AToolAbst tool) {
+        if (books.howLong() > 0) {
+            tool.toolGuide();
+            for (Book book: books.getAllBooks()) {
+                System.out.println("Title: " + book.getTitle() + ", Author: " + book.getAuthor()
+                        + ", Status: " + book.getStatus());
+            }
+        } else {
+            System.out.println("No books added yet!");
+        }
+    }
+
+    private void removingBook(AToolAbst tool) {
+        if (books.howLong() > 0) {
+            tool.toolGuide();
+            String title = tool.readInput();
+            if (books.getBookByTitle(title) != null) {
+                books.removeBook(books.getBookByTitle(title));
+                System.out.println(title + " is now removed.");
+
+            } else {
+                System.out.println("No book found. Try again.");
+            }
+        } else {
+            System.out.println("No books added yet!");
+        }
+    }
+
+    private void changingStatus(AToolAbst tool) {
+        if (books.howLong() > 0) {
+            tool.toolGuide();
+            String title = tool.readInput();
+            if (books.getBookByTitle(title) != null) {
+                books.getBookByTitle(title).setStatus("Completed");
+                System.out.println(title + " is now completed.");
+
+            } else {
+                System.out.println("No book found. Try again.");
+            }
+        } else {
+            System.out.println("No books added yet!");
+        }
+    }
+
+    //REQUIRES:
+    //MODIFIES:
+    //EFFECTS: creates print statements of function that may be carried out.
+
     private void toolList() {
-        System.out.println("");
-        System.out.println("Genre:" + books.getName());
-        System.out.println("What do you wish to do:");
-        System.out.println("");
+        System.out.println("\n" + "Genre:" + books.getName());
+        System.out.println("What do you wish to do:" + "\n");
         System.out.println("1. Add a book");
         System.out.println("2. Remove a book");
         System.out.println("3. Change book status");
@@ -156,6 +190,9 @@ public class ReadListApp {
     }
 
 
+    //REQUIRES:
+    //MODIFIES:
+    //EFFECTS: Makes program more robust, as it check for exceptions.
 
     public int selectTool(int num) {
         List<Integer> allToolPresent = Arrays.asList(1, 2, 3, 4, 5, 6);
@@ -173,6 +210,7 @@ public class ReadListApp {
         }
     }
 
+    //EFFECTS: splits a word on ",", and return the first part.
     public String splitTheWord(String word) {
         String[] parts = word.split(",");
         return parts[0];

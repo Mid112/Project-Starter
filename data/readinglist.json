@@ -1,15 +1,8 @@
 {
-    "books": [
-        {
-            "author": "mm",
-            "title": "mm",
-            "status": "Completed. Read Again?"
-        },
-        {
-            "author": "zz",
-            "title": "zz",
-            "status": "NotCompleted."
-        }
-    ],
-    "name": "Good"
+    "books": [{
+        "author": " Author",
+        "title": "Title",
+        "status": "NotCompleted."
+    }],
+    "name": "Reading List"
 }

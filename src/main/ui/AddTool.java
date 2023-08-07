@@ -4,7 +4,11 @@ import model.Book;
 
 import java.util.Scanner;
 
+//An extended class on AtoolAbst that allows to add a book.
+
 public class AddTool extends AToolAbst {
+
+    //EFFECTS: Prints the statements guiding user to use the guide.
     @Override
     public void toolGuide() {
 
@@ -17,6 +21,8 @@ public class AddTool extends AToolAbst {
 
     }
 
+    //EFFECTS: Reads user input and also check for any exception
+    // to make program robust.
     @Override
     public String readInput() {
         while (true) {
@@ -38,6 +44,8 @@ public class AddTool extends AToolAbst {
             }
         }
     }
+
+    //EFFECTS: Creates new book based input added by user.
 
     @Override
     public Book runFunctionTool(String action) {

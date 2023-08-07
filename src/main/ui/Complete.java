@@ -4,7 +4,12 @@ import model.Book;
 
 import java.util.Scanner;
 
+//Tools that helps to change status of a book to complete.
+
 public class Complete extends AToolAbst {
+
+    //EFFECTS: Prints the statements guiding user to use the guide.
+
     @Override
     public void toolGuide() {
         System.out.println("");
@@ -13,6 +18,9 @@ public class Complete extends AToolAbst {
         System.out.println("");
         System.out.println("Enter r to Return");
     }
+
+    //EFFECTS: Reads user input and also check for any exception
+    // to make program robust.
 
     @Override
     public String readInput() {
@@ -30,6 +38,8 @@ public class Complete extends AToolAbst {
 
         }
     }
+
+    //EFFECTS: performs no especial function for this tool.
 
     @Override
     public Book runFunctionTool(String action) {

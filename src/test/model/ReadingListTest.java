@@ -72,9 +72,5 @@ public class ReadingListTest {
 
     }
 
-    @Test
-    public void getNameTest() {
-
-    }
 
 }

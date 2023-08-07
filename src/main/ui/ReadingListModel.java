@@ -1,5 +1,6 @@
-package model;
+package ui;
 
+import model.Book;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import persistence.Writable;
@@ -9,14 +10,14 @@ import java.util.List;
 
 //This class creates a model list of books, where each reading list has a name.
 
-public class ReadingList implements Writable {
+public class ReadingListModel implements Writable {
 
     private List<Book> books;
     private String name;
 
     private Book emptyBook = null;
 
-    public ReadingList(String name) {
+    public ReadingListModel(String name) {
         this.name = name;
         books = new ArrayList<>();
     }

@@ -2,6 +2,7 @@ package ui;
 
 import model.Book;
 
+//A abstract super class that all tools implement.
 public abstract class AToolAbst {
 
     public static final int ADD_BOOK = 1;

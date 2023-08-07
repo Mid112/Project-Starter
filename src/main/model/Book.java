@@ -63,6 +63,10 @@ public class Book implements Writable {
 
     }
 
+    //REQUIRES:
+    //MODIFIES: this,
+    //EFFECTS: Introduces a book as a Json object to be stored.
+
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
