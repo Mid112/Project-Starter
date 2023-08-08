@@ -33,15 +33,16 @@ public class ReadingListGUI extends JFrame {
 
     private JPanel mainContentPane;
     private JPanel newTaskControls;
-    private JButton addTaskButton;
-    private JTextField newTaskField;
-    private JPanel taskListScrollPane;
-    private JPanel taskListControls;
+    private JButton addBookButton;
+    private JTextField newTextField;
+    private JPanel panelWithComboBox;
+    private JPanel panelWithButtons;
     private JButton saveButton;
     private JButton deleteButton;
     private JButton loadButton;
     private JButton changeStatusButton;
-    private JComboBox<String> taskList;
+    private JComboBox<String> bookList;
+
 
 
 
@@ -71,6 +72,10 @@ public class ReadingListGUI extends JFrame {
 
     }
 
+    //REQUIRES:
+    //MODIFIES: this,
+    //EFFECTS: This creates the main panel and call other methods to implement button and textfield.
+
     private Container getMainContentPane() {
         if (mainContentPane == null) {
             this.mainContentPane = new JPanel();
@@ -82,6 +87,10 @@ public class ReadingListGUI extends JFrame {
         }
         return this.mainContentPane;
     }
+
+    //REQUIRES:
+    //MODIFIES: this,
+    //EFFECTS: This creates the text field and a add button to its right.
 
     private Component getNewTaskControls() {
         if (this.newTaskControls == null) {
@@ -99,62 +108,79 @@ public class ReadingListGUI extends JFrame {
         return this.newTaskControls;
     }
 
+    //REQUIRES:
+    //MODIFIES: this,
+    //EFFECTS: This creates the text field.
+
     private JTextField getNewTaskField() {
-        if (this.newTaskField == null) {
-            this.newTaskField = new JTextField("Title, Author, Status");
+        if (this.newTextField == null) {
+            this.newTextField = new JTextField("Title, Author, Status");
         }
-        return this.newTaskField;
+        return this.newTextField;
     }
 
+    //REQUIRES:
+    //MODIFIES: this,
+    //EFFECTS: This creates the creates a combo box with all the books.
 
     private Component getTasksListScrollPane() {
-        if (this.taskListScrollPane == null) {
-            this.taskListScrollPane = new JPanel();
+        if (this.panelWithComboBox == null) {
+            this.panelWithComboBox = new JPanel();
 
-            taskList = new JComboBox<>();
+            bookList = new JComboBox<>();
 
-            taskListScrollPane.add(taskList);
+            panelWithComboBox.add(bookList);
         }
-        return this.taskListScrollPane;
+        return this.panelWithComboBox;
     }
 
 
+    //REQUIRES:
+    //MODIFIES: this,
+    //EFFECTS: This creates the other four buttons like save, load, completed, delete.
 
     private Component getTasksListControls() {
-        if (this.taskListControls == null) {
-            this.taskListControls = new JPanel();
+        if (this.panelWithButtons == null) {
+            this.panelWithButtons = new JPanel();
 
-            BoxLayout layout = new BoxLayout(this.taskListControls, BoxLayout.Y_AXIS);
-            this.taskListControls.setLayout(layout);
-            this.taskListControls.setBorder(createEmptyBorder(5, 5, 5, 5));
+            BoxLayout layout = new BoxLayout(this.panelWithButtons, BoxLayout.Y_AXIS);
+            this.panelWithButtons.setLayout(layout);
+            this.panelWithButtons.setBorder(createEmptyBorder(5, 5, 5, 5));
 
             JButton button = getSaveButton();
             button.setAlignmentX(CENTER_ALIGNMENT);
-            this.taskListControls.add(button);
+            this.panelWithButtons.add(button);
 
-            this.taskListControls.add(createVerticalStrut(10));
+            this.panelWithButtons.add(createVerticalStrut(10));
 
             button = getDeleteButton();
             button.setAlignmentX(CENTER_ALIGNMENT);
-            this.taskListControls.add(button);
+            this.panelWithButtons.add(button);
 
-            this.taskListControls.add(createVerticalStrut(10));
+            this.panelWithButtons.add(createVerticalStrut(10));
 
             button = getLoadButton();
             button.setAlignmentX(CENTER_ALIGNMENT);
-            this.taskListControls.add(button);
+            this.panelWithButtons.add(button);
 
 
 
-            this.taskListControls.add(createVerticalStrut(10));
+            this.panelWithButtons.add(createVerticalStrut(10));
 
             button = getChangeStatusButton();
             button.setAlignmentX(CENTER_ALIGNMENT);
-            this.taskListControls.add(button);
+            this.panelWithButtons.add(button);
         }
 
-        return this.taskListControls;
+        return this.panelWithButtons;
     }
+
+    //REQUIRES:
+    //MODIFIES: this,
+    //EFFECTS: This button function changes the status of the selected book.
+
+
+    // the image is taken from a pinterest user, "Good Housekeeping"
 
     private JButton getChangeStatusButton() {
         if (this.changeStatusButton == null) {
@@ -165,11 +191,11 @@ public class ReadingListGUI extends JFrame {
                 @Override
 
                 public void mouseClicked(MouseEvent e) {
-                    String selected = (String) taskList.getSelectedItem();
+                    String selected = (String) bookList.getSelectedItem();
                     String[] parts = selected.split(",");
                     books.getBookByTitle(parts[0]).setStatus("Completed");
-                    taskList.removeItem(taskList.getSelectedItem());
-                    taskList.addItem(books.getBookByTitle(parts[0]).getTitle()
+                    bookList.removeItem(bookList.getSelectedItem());
+                    bookList.addItem(books.getBookByTitle(parts[0]).getTitle()
                             + "," + books.getBookByTitle(parts[0]).getAuthor()
                             + "," + books.getBookByTitle(parts[0]).getStatus());
 
@@ -184,6 +210,10 @@ public class ReadingListGUI extends JFrame {
         return this.changeStatusButton;
     }
 
+    //REQUIRES:
+    //MODIFIES: this,
+    //EFFECTS: This loads the book saved reading lead to combo box.
+
     private JButton getLoadButton() {
         if (this.loadButton == null) {
             this.loadButton = new JButton("Load");
@@ -194,11 +224,11 @@ public class ReadingListGUI extends JFrame {
 
                     loadReadingList();
 
-                    taskListScrollPane.remove(taskList);
-                    taskList = new JComboBox<>();
-                    taskListScrollPane.add(taskList);
+                    panelWithComboBox.remove(bookList);
+                    bookList = new JComboBox<>();
+                    panelWithComboBox.add(bookList);
                     for (int i = 0; i < books.howLong(); i++) {
-                        taskList.addItem(books.getAllBooks().get(i).getTitle()
+                        bookList.addItem(books.getAllBooks().get(i).getTitle()
                                 + "," + books.getAllBooks().get(i).getAuthor()
                                 + "," + books.getAllBooks().get(i).getStatus());
                     }
@@ -212,6 +242,10 @@ public class ReadingListGUI extends JFrame {
 
     }
 
+    //REQUIRES:
+    //MODIFIES: this,
+    //EFFECTS: This deletes the selected item from JCombo box.
+
     private JButton getDeleteButton() {
         if (this.deleteButton == null) {
             this.deleteButton = new JButton("Delete");
@@ -219,10 +253,10 @@ public class ReadingListGUI extends JFrame {
             this.deleteButton.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    String selected = (String) taskList.getSelectedItem();
+                    String selected = (String) bookList.getSelectedItem();
                     String[] parts = selected.split(",");
                     books.removeBook(books.getBookByTitle(parts[0]));
-                    taskList.removeItem(taskList.getSelectedItem());
+                    bookList.removeItem(bookList.getSelectedItem());
 
                 }
             });
@@ -231,6 +265,10 @@ public class ReadingListGUI extends JFrame {
         return this.deleteButton;
 
     }
+
+    //REQUIRES:
+    //MODIFIES: this,
+    //EFFECTS: This saves the current reading list in teh JComboBox.
 
     private JButton getSaveButton() {
         if (this.saveButton == null) {
@@ -249,12 +287,15 @@ public class ReadingListGUI extends JFrame {
 
     }
 
+    //REQUIRES:
+    //MODIFIES: this,
+    //EFFECTS: This adds the valid items in the text field to JCombo Box.
 
     private JButton getAddTaskButton() {
-        if (this.addTaskButton == null) {
-            this.addTaskButton = new JButton("Add");
+        if (this.addBookButton == null) {
+            this.addBookButton = new JButton("Add");
 
-            this.addTaskButton.addMouseListener(new MouseAdapter() {
+            this.addBookButton.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     if (getNewTaskField().getText().length() > 0) {
@@ -263,7 +304,7 @@ public class ReadingListGUI extends JFrame {
 
                         books.addBook(anybook);
 
-                        taskList.addItem(books.getBookByTitle(anybook.getTitle()).getTitle() + ","
+                        bookList.addItem(books.getBookByTitle(anybook.getTitle()).getTitle() + ","
                                 + books.getBookByTitle(anybook.getTitle()).getAuthor() + ","
                                 + books.getBookByTitle(parts[0]).getStatus());
 
@@ -277,7 +318,7 @@ public class ReadingListGUI extends JFrame {
             });
 
         }
-        return this.addTaskButton;
+        return this.addBookButton;
     }
 
 

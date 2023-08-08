@@ -34,19 +34,23 @@ A *brief* description regarding the application:
 
 
 A user stories for ***Reading Pal*** would be as follows:
-- As a user, I want to be able to add book to 'READ NEXT' 
+- As a user, I want to be able to add book to 'reading list' 
 - As a user, I want to be able to view status book like complete, not completed etc.
 - As a user, I want to be able to view all the books I have read and will read.
-- As a user, I want to be able to rank my book according to my personal preference.
 - As a user, I want to be able to remove books from my reading lists.
 - As a user, I want to be able to save my reading list to file (if I so choose).
 - As a user, I want to be able to load my reading list from file (if I so choose).
 
-[//]: # (- As a user, I want to be able to create a reading goal, )
+## Instructions For Grader
 
-[//]: # (  - I want to define time period to read a certain book.)
-
-[//]: # (- As a user, I want to be able to create new genre and add books to them.)
-
-[//]: # ( &#40;- As a user, I want to be able to add things like quote, notes etc. for individual books.&#41;)
-
+- You can generate the first required action related to adding Xs to a Y by typing a book title, author 
+and status with commas, and clicking add.
+- You can generate the second required action related to adding Xs to a Y by selecting book from the menu, 
+and while the book is selected and menu is open. Click the delete button to remove the book.
+- You can generate the third action related to adding Xs to a Y by selecting book from the menu,
+  and while the book is selected and menu is open. Click the Completed button the change book status,
+- You can locate my visual component by selecting book from the menu,
+  and while the book is selected and menu is open. Click the Completed button to change book status. This will
+make an image pop-up.
+- You can save the state of my application by clicking the save button.
+- You can reload the state of my application by clicking the load button.
