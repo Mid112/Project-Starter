@@ -73,6 +73,7 @@ public class ReadingListGUI extends JFrame {
         this.pack();
         setVisible(true);
 
+        //EFFECTS: creates a print log in console when an application ends.
         this.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {

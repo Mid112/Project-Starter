@@ -54,3 +54,26 @@ and while the book is selected and menu is open. Click the delete button to remo
 make an image pop-up.
 - You can save the state of my application by clicking the save button.
 - You can reload the state of my application by clicking the load button.
+
+## Phase 4: Task 2
+
+GUI has been closed
+
+Wed Aug 09 22:52:38 PDT 2023 
+
+You have added a book to reading list.
+
+Wed Aug 09 22:52:42 PDT 2023
+
+You have removed a book from the reading list.
+
+Wed Aug 09 22:52:45 PDT 2023
+
+You have added a book to reading list.
+
+Wed Aug 09 22:52:47 PDT 2023
+
+You have completed a book.
+
+Reading List is closed
+
