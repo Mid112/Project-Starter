@@ -56,6 +56,7 @@ public class Book implements Writable {
 
     public void setStatus(String status) {
         if (status == "Completed") {
+            EventLog.getInstance().logEvent(new Event("You have completed a book."));
             this.status = "Completed." + " Read" + " Again?";
         } else {
             this.status = "Not" + "Completed.";

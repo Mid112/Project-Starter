@@ -55,13 +55,16 @@ public class ReadingList implements Writable {
     //EFFECTS: adds Book to the books in Reading List
 
     public void addBook(Book book) {
+        EventLog.getInstance().logEvent(new Event("You have added a book to reading list."));
         books.add(book);
     }
 
     //EFFECTS: adds Book from the books in Reading List
 
     public void removeBook(Book book) {
+        EventLog.getInstance().logEvent(new Event("You have removed a book from the reading list."));
         books.remove(book);
+
     }
 
     //EFFECTS: commits the name and list of all books to the jSon object.

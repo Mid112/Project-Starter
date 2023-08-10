@@ -1,19 +1,20 @@
 package ui;
 
 import model.Book;
+import model.Event;
 import model.ReadingList;
+import model.EventLog;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
 import javax.swing.*;
 import javax.swing.ImageIcon;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import static java.lang.Math.max;
+
 import static javax.swing.BorderFactory.createEmptyBorder;
 import static javax.swing.Box.createVerticalStrut;
 
@@ -22,6 +23,7 @@ import static javax.swing.Box.createVerticalStrut;
 //some of the sources from CPSC 210 like alarm system.
 
 public class ReadingListGUI extends JFrame {
+
     private static final String JSON_STORE = "./data/readinglist.json";
 
     private ReadingList books;
@@ -64,11 +66,25 @@ public class ReadingListGUI extends JFrame {
         this.setContentPane(this.getMainContentPane());
 
         this.setTitle("Reading List");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
+
 
         this.pack();
         setVisible(true);
+
+        this.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                System.out.println("GUI has been closed");
+                for (Event e : EventLog.getInstance()) {
+                    System.out.println(e.toString());
+                }
+                System.out.println("Reading List is closed");
+                //THEN you can exit the program
+                System.exit(0);
+            }
+        });
 
     }
 
@@ -347,6 +363,8 @@ public class ReadingListGUI extends JFrame {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
+
+
 
 
 
