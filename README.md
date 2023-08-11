@@ -77,3 +77,14 @@ You have completed a book.
 
 Reading List is closed
 
+
+## Phase 4: Task 3
+
+**What refactoring might be done to improve your design?**
+
+The system implemented could be improved by making it more scalable. In the project,
+reading list could have multiplicity of collection (*) in the ReadingListUI. This 
+would make 
+
+
+
