@@ -83,8 +83,15 @@ Reading List is closed
 **What refactoring might be done to improve your design?**
 
 The system implemented could be improved by making it more scalable. In the project,
-reading list could have multiplicity of collection (*) in the ReadingListUI. This 
-would make 
+ReadingList could have multiplicity of collection (*) in the ReadingListUI. This 
+would allow the project to be able to create multiple ReadingList that could be named differently
+according to genres. The ability to access writable can be done through a single point of access. 
+Creating a singleton method with ReadingList in current implementation can allow better 
+features or revisions in the future. With the singleton method, a composite method might be required
+this would allow us to create multiple ReadingLists with almost similar specification. Even by applying
+singleton and composite method, not only will design improve but, functionality can be increased as well.
+
+
 
 
 
