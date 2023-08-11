@@ -86,10 +86,11 @@ The system implemented could be improved by making it more scalable. In the proj
 ReadingList could have multiplicity of collection (*) in the ReadingListUI. This 
 would allow the project to be able to create multiple ReadingList that could be named differently
 according to genres. The ability to access writable can be done through a single point of access. 
-Creating a singleton method with ReadingList in current implementation can allow better 
+All of this needs a singleton method to be implemented with ReadingList that can allow better 
 features or revisions in the future. With the singleton method, a composite method might be required
 this would allow us to create multiple ReadingLists with almost similar specification. Even by applying
-singleton and composite method, not only will design improve but, functionality can be increased as well.
+singleton and composite method, not only will design improve but, functionality can be increased as well. 
+This will help us avoid coupling between classes of Book and ReadingList.
 
 
 
